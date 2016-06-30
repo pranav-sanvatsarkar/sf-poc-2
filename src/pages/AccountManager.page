@@ -1,0 +1,15 @@
+<apex:page standardController="Account" extensions="AccountManagerController">
+	<apex:pageMessages />
+    <apex:form >
+        <apex:pageBlock rendered="{!IF( LstFieldAPINames != null, TRUE, FALSE )}" id="pageBlock">
+            <apex:pageBlockButtons >
+                <apex:commandButton value="Save" action="{!save}"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection >
+                <apex:repeat value="{!LstFieldAPINames}" var="field" rendered="{!IF( LstFieldAPINames != null, TRUE, FALSE )}">
+                    <apex:inputField value="{!Account[field]}" />
+                </apex:repeat>    
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
